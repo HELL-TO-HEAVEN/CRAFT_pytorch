@@ -112,6 +112,6 @@ if __name__ == '__main__':
         filename, file_ext = os.path.splitext(os.path.basename(image_path))
         mask_file = result_folder + "/res_" + filename + '_mask.jpg'
         cv2.imwrite(mask_file, score_text)
-        file_utils.saveResult(image_path, image[:, :, ::-1], bboxes, dirname=result_folder)
+        file_utils.saveResult(image_path, image[:, :, :], bboxes, dirname=result_folder)
 
     print("elapsed time : {}s".format(time.time() - t))
