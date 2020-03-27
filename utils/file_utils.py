@@ -40,7 +40,11 @@ def saveResult(img_file, img, boxes, dirname='./result/', verticals=None, texts=
         Return:
             None
         """
-        img = np.array(img)
+        #img = np.array(img)
+        try:
+            assert img.flags['C_CONTIGUOUS'] == True
+        except:
+            img = np.ascontiguousarray(img)
 
         # make result file list
         filename, file_ext = os.path.splitext(os.path.basename(img_file))
